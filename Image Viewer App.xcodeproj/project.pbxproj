@@ -82,13 +82,26 @@
 				9DB9E4B725D312B6009A8D8F /* Service */,
 				9D403D4125D2B598003659A7 /* AppDelegate.swift */,
 				9D403D4325D2B598003659A7 /* SceneDelegate.swift */,
-				9D403D4525D2B598003659A7 /* ViewController.swift */,
-				9D403D4725D2B598003659A7 /* Main.storyboard */,
-				9D403D4A25D2B599003659A7 /* Assets.xcassets */,
-				9D403D4C25D2B599003659A7 /* LaunchScreen.storyboard */,
 				9D403D4F25D2B599003659A7 /* Info.plist */,
 			);
 			path = "Image Viewer App";
+			sourceTree = "<group>";
+		};
+		9D4B8F6925D3312400D7A8AA /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				9D403D4725D2B598003659A7 /* Main.storyboard */,
+				9D403D4C25D2B599003659A7 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		9D4B8F6A25D3315900D7A8AA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9D403D4525D2B598003659A7 /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		9DB9E4B725D312B6009A8D8F /* Service */ = {
@@ -110,6 +123,9 @@
 		9DB9E4B925D312D0009A8D8F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9D4B8F6A25D3315900D7A8AA /* Controller */,
+				9D403D4A25D2B599003659A7 /* Assets.xcassets */,
+				9D4B8F6925D3312400D7A8AA /* Storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
