@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -48,7 +48,6 @@
 				13931CDB58DE6A9D19A37E83 /* Pods-Image Viewer App.debug.xcconfig */,
 				DF81C3B5AC261ACDF00F5D09 /* Pods-Image Viewer App.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -73,6 +72,10 @@
 		9D403D4025D2B598003659A7 /* Image Viewer App */ = {
 			isa = PBXGroup;
 			children = (
+				9DB9E4BA25D312D5009A8D8F /* ViewModel */,
+				9DB9E4B925D312D0009A8D8F /* View */,
+				9DB9E4B825D312BD009A8D8F /* Model */,
+				9DB9E4B725D312B6009A8D8F /* Service */,
 				9D403D4125D2B598003659A7 /* AppDelegate.swift */,
 				9D403D4325D2B598003659A7 /* SceneDelegate.swift */,
 				9D403D4525D2B598003659A7 /* ViewController.swift */,
@@ -82,6 +85,34 @@
 				9D403D4F25D2B599003659A7 /* Info.plist */,
 			);
 			path = "Image Viewer App";
+			sourceTree = "<group>";
+		};
+		9DB9E4B725D312B6009A8D8F /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		9DB9E4B825D312BD009A8D8F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9DB9E4B925D312D0009A8D8F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9DB9E4BA25D312D5009A8D8F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		DD702AFBF66237E6D6005339 /* Frameworks */ = {
