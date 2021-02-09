@@ -7,5 +7,7 @@ target 'Image Viewer App' do
 
   # Pods for Image Viewer App
 pod 'Alamofire', '~> 5.2'
+  pod 'RxSwift', '6.0.0'
+    pod 'RxCocoa', '6.0.0'
 
 end
