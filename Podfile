@@ -6,7 +6,7 @@ target 'Image Viewer App' do
   use_frameworks!
 
   # Pods for Image Viewer App
-pod 'Alamofire', '~> 5.2'
+pod 'Alamofire', '4.8.2'
   pod 'RxSwift', '6.0.0'
     pod 'RxCocoa', '6.0.0'
 
