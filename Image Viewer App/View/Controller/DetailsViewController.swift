@@ -65,5 +65,4 @@ class DetailsViewController: UIViewController {
         // ...
         print("stop")
     }
-    
 }

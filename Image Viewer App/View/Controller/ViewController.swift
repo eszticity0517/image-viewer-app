@@ -46,6 +46,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath as IndexPath) as! PhotoTableViewCell
         cell.photoTitle!.text = photo.title
         cell.downloadButton!.tag = photo.id!
+        cell.tag = photo.id!
         cell.downloadButton!.addTarget(self, action:#selector(self.buttonClicked), for: .touchUpInside)
         return cell
     }
@@ -89,10 +90,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print((sender as! PhotoTableViewCell).tag)
         if let destination = segue.destination as? DetailsViewController {
             destination.photoID = (sender as! PhotoTableViewCell).tag
-            destination.photoText = photoListViewModel.photos![(sender as! PhotoTableViewCell).tag].title!
-            destination.photoURL = photoListViewModel.photos![(sender as! PhotoTableViewCell).tag].url!
+            destination.photoText = photoListViewModel.photos![(sender as! PhotoTableViewCell).tag - 1].title!
+            destination.photoURL = photoListViewModel.photos![(sender as! PhotoTableViewCell).tag - 1].url!
         }
     }
 }
