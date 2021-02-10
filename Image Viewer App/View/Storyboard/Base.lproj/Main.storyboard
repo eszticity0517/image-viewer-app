@@ -51,6 +51,7 @@
                                         <connections>
                                             <outlet property="downloadButton" destination="uWs-Ju-vcF" id="AZH-os-Eu9"/>
                                             <outlet property="photoTitle" destination="OhP-pU-qxX" id="Vcx-pk-OlU"/>
+                                            <segue destination="k91-ne-MyI" kind="show" id="kWs-IC-Uz3"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -90,7 +91,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y1q-Sa-UNX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140.57971014492756" y="61.607142857142854"/>
+            <point key="canvasLocation" x="223" y="62"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="Nq8-aT-G0k">
@@ -102,10 +103,11 @@
                         <viewLayoutGuide key="safeArea" id="Exc-pI-xR0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="UsG-hm-3oZ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4fH-sU-JlP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1925" y="62"/>
+            <point key="canvasLocation" x="1922" y="62"/>
         </scene>
     </scenes>
     <resources>
