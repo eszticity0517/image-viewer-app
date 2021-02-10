@@ -12,6 +12,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet public weak var photoTitle: UILabel!
     @IBOutlet public weak var photoImage: UIImage!
     
+    // These are coming from the previous ViewController.
     public var photoID: Int = 0
     public var photoText: String = ""
     

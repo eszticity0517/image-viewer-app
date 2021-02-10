@@ -32,6 +32,19 @@ struct DataService {
         }
     }
     
+    func requestDownloadPhoto(imageURL: String, completion: @escaping (Data?, Error?) -> ()) {
+        Alamofire.download(imageURL).responseData { response in
+            if let error = response.error {
+                completion(nil, error)
+                return
+            }
+            if let data = response.result.value {
+                completion(data, nil)
+                return
+            }
+        }
+    }
+    
     // MARK: - fetch all existing photos
     func requestFetchAllPhotos(completion: @escaping (Array<Photo>?, Error?) -> ()) {
         let url = "\(photoUrl)/"
