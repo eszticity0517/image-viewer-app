@@ -17,6 +17,7 @@
 		9D403D4E25D2B599003659A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D403D4C25D2B599003659A7 /* LaunchScreen.storyboard */; };
 		9D4B8F7625D3398000D7A8AA /* PhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4B8F7525D3398000D7A8AA /* PhotoViewModel.swift */; };
 		9D609E0125D43C4000C3F6BD /* PhotoViewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D609E0025D43C4000C3F6BD /* PhotoViewTableCell.swift */; };
+		9D609E0A25D4487500C3F6BD /* DownloaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D609E0925D4487500C3F6BD /* DownloaderService.swift */; };
 		9DB9E4BC25D3158B009A8D8F /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB9E4BB25D3158B009A8D8F /* DataService.swift */; };
 		9DB9E4C025D3162C009A8D8F /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB9E4BF25D3162C009A8D8F /* Photo.swift */; };
 		B3CEC8DB5CDBA144F21F0232 /* Pods_Image_Viewer_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74E7DE89F32CF0682AEE07CB /* Pods_Image_Viewer_App.framework */; };
@@ -37,6 +38,7 @@
 		9D403D4F25D2B599003659A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D4B8F7525D3398000D7A8AA /* PhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewModel.swift; sourceTree = "<group>"; };
 		9D609E0025D43C4000C3F6BD /* PhotoViewTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewTableCell.swift; sourceTree = "<group>"; };
+		9D609E0925D4487500C3F6BD /* DownloaderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderService.swift; sourceTree = "<group>"; };
 		9DB9E4BB25D3158B009A8D8F /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		9DB9E4BF25D3162C009A8D8F /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		DF81C3B5AC261ACDF00F5D09 /* Pods-Image Viewer App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Image Viewer App.release.xcconfig"; path = "Target Support Files/Pods-Image Viewer App/Pods-Image Viewer App.release.xcconfig"; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				9DB9E4BB25D3158B009A8D8F /* DataService.swift */,
+				9D609E0925D4487500C3F6BD /* DownloaderService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 			files = (
 				9D609E0125D43C4000C3F6BD /* PhotoViewTableCell.swift in Sources */,
 				9D130C5725D3E7B900B7DBA2 /* DataRequest.swift in Sources */,
+				9D609E0A25D4487500C3F6BD /* DownloaderService.swift in Sources */,
 				9D403D4625D2B598003659A7 /* ViewController.swift in Sources */,
 				9D4B8F7625D3398000D7A8AA /* PhotoViewModel.swift in Sources */,
 				9D403D4225D2B598003659A7 /* AppDelegate.swift in Sources */,

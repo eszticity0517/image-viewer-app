@@ -7,6 +7,7 @@
 
 
 import UIKit
+import Alamofire
 // The view controller no longer owns the model.
 // It's the view model that owns the model, and the view controller asks the view model for the data it needs to display.
 // We don´t need the UITableViewController inheritance, this extends from UIViewController already, but DataSource and ViewDelegate are needed.
@@ -51,6 +52,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @objc func buttonClicked(sender: AnyObject?) {
         print("Button Clicked")
+        
+        let destination: DownloadRequest.DownloadFileDestination = { _, _ in
+            var documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+            documentsURL.appendPathComponent("file.png")
+            return (documentsURL, [.removePreviousFile])
+        }
+        
+        Alamofire.download(url, to: destination).responseData { response in
+            if let destinationUrl = response.destinationURL {
+                print("destinationUrl \(destinationUrl.absoluteURL)")
+            }
+        }
     }
     
     // MARK: - Networking
