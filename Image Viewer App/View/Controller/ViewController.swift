@@ -25,6 +25,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         photosTable.dataSource = self
         photosTable.delegate = self
+        photosTable.rowHeight = 60
         
         attemptFetchPhoto(withId: 8)
         attemptFetchAllPhotos()
@@ -47,6 +48,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // cell.textLabel!.text = "\(myArray[indexPath.row])"
         cell.textLabel!.text = photo.title
         cell.downloadButton!.tag = photo.id!
+    
         return cell
     }
     
