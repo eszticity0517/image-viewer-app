@@ -5,10 +5,6 @@
 //  Created by Eszter Szabó on 2021. 02. 09..
 //
 
-class PhotoTableViewCell: UITableViewCell {
-    @IBOutlet weak var downloadButton: UIButton!
-    @IBOutlet weak var photoTitle: UILabel!
-}
 
 import UIKit
 // The view controller no longer owns the model.
