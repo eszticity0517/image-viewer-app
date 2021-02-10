@@ -48,4 +48,8 @@ class PhotoListViewModel {
             self.photos = photos
         })
     }
+    
+    func numberOfRowsInSection() -> Int {
+         return photos?.count ?? 0
+     }
 }

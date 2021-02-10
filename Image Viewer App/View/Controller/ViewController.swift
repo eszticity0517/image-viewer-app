@@ -8,7 +8,7 @@
 import UIKit
 // The view controller no longer owns the model.
 // It's the view model that owns the model, and the view controller asks the view model for the data it needs to display.
-// We don´t need the UITableViewController inheritance, this extends from UIViewController already.
+// We don´t need the UITableViewController inheritance, this extends from UIViewController already, but DataSource and ViewDelegate are needed.
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     // MARK: - Injection
     let photoViewModel = PhotoViewModel(dataService: DataService())
@@ -33,13 +33,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // return myArray.count
-        return 3
+        print(photoListViewModel.numberOfRowsInSection())
+        return photoListViewModel.numberOfRowsInSection()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let photo = photoListViewModel.photos![indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath as IndexPath)
         // cell.textLabel!.text = "\(myArray[indexPath.row])"
-        cell.textLabel!.text = "Example text"
+        cell.textLabel!.text = photo.title
         return cell
     }
     
@@ -58,7 +60,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         
         photoViewModel.didFinishFetch = {
-            // TODO: fill the table with objects.
+            self.photosTable.reloadData()
         }
     }
     
@@ -76,7 +78,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         
         photoListViewModel.didFinishFetch = {
-            // TODO: fill the table with objects.
+            self.photosTable.reloadData()
         }
     }
     
