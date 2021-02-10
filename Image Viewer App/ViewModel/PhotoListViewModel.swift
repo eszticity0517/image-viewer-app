@@ -10,7 +10,7 @@ import Foundation
 class PhotoListViewModel {
     
     // MARK: - Properties
-    private var photos: Array<Photo>? {
+    var photos: Array<Photo>? {
         didSet {
             guard let p = photos else { return }
             self.didFinishFetch?()

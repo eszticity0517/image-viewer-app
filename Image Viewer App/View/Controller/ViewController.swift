@@ -18,6 +18,7 @@ class ViewController: UIViewController {
         
         // TODO: add another function for every photo's fetching.
         attemptFetchPhoto(withId: 8)
+        attemptFetchAllPhotos()
     }
     
     // MARK: - Networking
