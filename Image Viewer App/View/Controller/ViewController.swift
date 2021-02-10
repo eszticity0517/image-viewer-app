@@ -45,8 +45,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // cell.textLabel!.text = "\(myArray[indexPath.row])"
         cell.photoTitle!.text = photo.title
         cell.downloadButton!.tag = photo.id!
-    
+        cell.downloadButton!.addTarget(self, action:#selector(self.buttonClicked), for: .touchUpInside)
         return cell
+    }
+    
+    @objc func buttonClicked(sender: AnyObject?) {
+        print("Button Clicked")
     }
     
     // MARK: - Networking
