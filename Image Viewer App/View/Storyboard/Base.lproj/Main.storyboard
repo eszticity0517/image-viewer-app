@@ -100,10 +100,34 @@
                     <view key="view" contentMode="scaleToFill" id="WSD-ZQ-OhI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JhK-w9-C1L" userLabel="photoTitle">
+                                <rect key="frame" x="20" y="108" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dyD-yo-sGX" userLabel="photoImage">
+                                <rect key="frame" x="20" y="149" width="374" height="693"/>
+                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Exc-pI-xR0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Exc-pI-xR0" firstAttribute="trailing" secondItem="JhK-w9-C1L" secondAttribute="trailing" constant="20" id="2hR-JT-5nz"/>
+                            <constraint firstItem="Exc-pI-xR0" firstAttribute="bottom" secondItem="dyD-yo-sGX" secondAttribute="bottom" constant="20" id="B4l-Ql-RSd"/>
+                            <constraint firstItem="dyD-yo-sGX" firstAttribute="leading" secondItem="Exc-pI-xR0" secondAttribute="leading" constant="20" id="Jo3-9U-RXo"/>
+                            <constraint firstItem="JhK-w9-C1L" firstAttribute="top" secondItem="Exc-pI-xR0" secondAttribute="top" constant="20" id="LYk-AI-b0p"/>
+                            <constraint firstItem="JhK-w9-C1L" firstAttribute="leading" secondItem="Exc-pI-xR0" secondAttribute="leading" constant="20" id="XCg-fA-AIz"/>
+                            <constraint firstItem="dyD-yo-sGX" firstAttribute="top" secondItem="JhK-w9-C1L" secondAttribute="bottom" constant="20" id="d3S-Uu-G1g"/>
+                            <constraint firstItem="Exc-pI-xR0" firstAttribute="trailing" secondItem="dyD-yo-sGX" secondAttribute="trailing" constant="20" id="qtj-Az-i9d"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="UsG-hm-3oZ"/>
+                    <connections>
+                        <outlet property="photoTitle" destination="JhK-w9-C1L" id="Tr0-LO-W8S"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4fH-sU-JlP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -113,6 +137,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

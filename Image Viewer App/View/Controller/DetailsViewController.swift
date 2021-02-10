@@ -9,9 +9,13 @@ import Foundation
 import UIKit
  
 class DetailsViewController: UIViewController {
+    @IBOutlet public weak var photoTitle: UILabel!
+    @IBOutlet public weak var photoImage: UIImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        photoTitle.text = "elm"
     }
     
     override func didReceiveMemoryWarning() {
