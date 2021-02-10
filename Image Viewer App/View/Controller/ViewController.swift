@@ -6,7 +6,8 @@
 //
 
 import UIKit
-
+// The view controller no longer owns the model.
+// It's the view model that owns the model, and the view controller asks the view model for the data it needs to display.
 class ViewController: UIViewController {
     // MARK: - Injection
       let viewModel = PhotoViewModel(dataService: DataService())
