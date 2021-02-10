@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9D0EF59E25D3F22700EB66FF /* PhotoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0EF59D25D3F22700EB66FF /* PhotoListViewModel.swift */; };
 		9D130C5725D3E7B900B7DBA2 /* DataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D130C5625D3E7B900B7DBA2 /* DataRequest.swift */; };
+		9D402E3D25D406EA003879FB /* PhotoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D402E3C25D406EA003879FB /* PhotoTableViewController.swift */; };
 		9D403D4225D2B598003659A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D403D4125D2B598003659A7 /* AppDelegate.swift */; };
 		9D403D4425D2B598003659A7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D403D4325D2B598003659A7 /* SceneDelegate.swift */; };
 		9D403D4625D2B598003659A7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D403D4525D2B598003659A7 /* ViewController.swift */; };
@@ -26,6 +27,7 @@
 		74E7DE89F32CF0682AEE07CB /* Pods_Image_Viewer_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Image_Viewer_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D0EF59D25D3F22700EB66FF /* PhotoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListViewModel.swift; sourceTree = "<group>"; };
 		9D130C5625D3E7B900B7DBA2 /* DataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRequest.swift; sourceTree = "<group>"; };
+		9D402E3C25D406EA003879FB /* PhotoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewController.swift; sourceTree = "<group>"; };
 		9D403D3E25D2B598003659A7 /* Image Viewer App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Image Viewer App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D403D4125D2B598003659A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D403D4325D2B598003659A7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				9D403D4525D2B598003659A7 /* ViewController.swift */,
+				9D402E3C25D406EA003879FB /* PhotoTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				9D403D4425D2B598003659A7 /* SceneDelegate.swift in Sources */,
 				9D0EF59E25D3F22700EB66FF /* PhotoListViewModel.swift in Sources */,
 				9DB9E4BC25D3158B009A8D8F /* DataService.swift in Sources */,
+				9D402E3D25D406EA003879FB /* PhotoTableViewController.swift in Sources */,
 				9DB9E4C025D3162C009A8D8F /* Photo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

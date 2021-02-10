@@ -11,14 +11,11 @@ import UIKit
 class ViewController: UIViewController {
     // MARK: - Injection
     let photoViewModel = PhotoViewModel(dataService: DataService())
-    let photoListViewModel = PhotoListViewModel(dataService: DataService())
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // TODO: add another function for every photo's fetching.
         attemptFetchPhoto(withId: 8)
-        attemptFetchAllPhotos()
     }
     
     // MARK: - Networking
@@ -36,24 +33,6 @@ class ViewController: UIViewController {
         }
         
         photoViewModel.didFinishFetch = {
-            // TODO: fill the table with objects.
-        }
-    }
-    
-    private func attemptFetchAllPhotos() {
-        photoListViewModel.fetchAllPhotos()
-        
-        photoListViewModel.updateLoadingStatus = {
-            let _ = self.photoViewModel.isLoading ? self.activityIndicatorStart() : self.activityIndicatorStop()
-        }
-        
-        photoListViewModel.showAlertClosure = {
-            if let error = self.photoViewModel.error {
-                print(error.localizedDescription)
-            }
-        }
-        
-        photoListViewModel.didFinishFetch = {
             // TODO: fill the table with objects.
         }
     }
