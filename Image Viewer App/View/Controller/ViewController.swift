@@ -7,6 +7,7 @@
 
 class PhotoTableViewCell: UITableViewCell {
     @IBOutlet weak var downloadButton: UIButton!
+    @IBOutlet weak var photoTitle: UILabel!
 }
 
 import UIKit
@@ -46,7 +47,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let photo = photoListViewModel.photos![indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath as IndexPath) as! PhotoTableViewCell
         // cell.textLabel!.text = "\(myArray[indexPath.row])"
-        cell.textLabel!.text = photo.title
+        cell.photoTitle!.text = photo.title
         cell.downloadButton!.tag = photo.id!
     
         return cell
