@@ -5,6 +5,10 @@
 //  Created by Eszter Szabó on 2021. 02. 09..
 //
 
+class PhotoTableViewCell: UITableViewCell {
+    @IBOutlet weak var downloadButton: UIButton!
+}
+
 import UIKit
 // The view controller no longer owns the model.
 // It's the view model that owns the model, and the view controller asks the view model for the data it needs to display.
@@ -39,9 +43,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let photo = photoListViewModel.photos![indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath as IndexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath as IndexPath) as! PhotoTableViewCell
         // cell.textLabel!.text = "\(myArray[indexPath.row])"
         cell.textLabel!.text = photo.title
+        cell.downloadButton!.tag = photo.id!
         return cell
     }
     
