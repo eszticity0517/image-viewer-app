@@ -31,4 +31,9 @@ extension DataRequest {
     func responsePhoto(queue: DispatchQueue? = nil, completionHandler: @escaping (DataResponse<Photo>) -> Void) -> Self {
         return responseDecodable(queue: queue, completionHandler: completionHandler)
     }
+    
+    @discardableResult
+    func responseAllPhotos(queue: DispatchQueue? = nil, completionHandler: @escaping (DataResponse<Array<Photo>>) -> Void) -> Self {
+        return responseDecodable(queue: queue, completionHandler: completionHandler)
+    }
 }
