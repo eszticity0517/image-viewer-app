@@ -37,19 +37,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Num: \(indexPath.row)")
-        // print("Value: \(myArray[indexPath.row])")
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // return myArray.count
-        print(photoListViewModel.numberOfRowsInSection())
         return photoListViewModel.numberOfRowsInSection()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let photo = photoListViewModel.photos![indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath as IndexPath) as! PhotoTableViewCell
-        // cell.textLabel!.text = "\(myArray[indexPath.row])"
         cell.photoTitle!.text = photo.title
         cell.downloadButton!.tag = photo.id!
         cell.downloadButton!.addTarget(self, action:#selector(self.buttonClicked), for: .touchUpInside)

@@ -18,9 +18,6 @@ struct DownloaderService {
     // TODO: add another function for every photo's fetching.
     // MARK: - Services
     func dowloadThumbnailIntoStorage(with url: String) {
-        
-        print(url)
-        
         let destination: DownloadRequest.DownloadFileDestination = { _, _ in
             var documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
             documentsURL.appendPathComponent("file.png")
@@ -29,8 +26,6 @@ struct DownloaderService {
         
         
         Alamofire.download(url, to: destination).responseData { response in
-            print(response)
-
             if response.result.isSuccess, let imagePath = response.destinationURL?.path {
                 print("Image successfully saved here:", imagePath)
             }
