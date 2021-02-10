@@ -16,10 +16,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     let photoViewModel = PhotoViewModel(dataService: DataService())
     let photoListViewModel = PhotoListViewModel(dataService: DataService())
     
+    // Not entirely sure where to put this, it is not related to the ViewModel nor the model actually ...
+    // TODO: find out where to put DownloaderService instance.
+    private var downloaderService: DownloaderService?
+    
     @IBOutlet public weak var photosTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        downloaderService = DownloaderService()
         
         photosTable.dataSource = self
         photosTable.delegate = self
@@ -51,19 +57,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     @objc func buttonClicked(sender: AnyObject?) {
-        print("Button Clicked")
-        
-        let destination: DownloadRequest.DownloadFileDestination = { _, _ in
-            var documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-            documentsURL.appendPathComponent("file.png")
-            return (documentsURL, [.removePreviousFile])
-        }
-        
-        Alamofire.download(url, to: destination).responseData { response in
-            if let destinationUrl = response.destinationURL {
-                print("destinationUrl \(destinationUrl.absoluteURL)")
-            }
-        }
+        let url = (photoListViewModel.photos?[sender!.tag ?? 0].thumbnailURL)!
+        downloaderService?.dowloadThumbnailIntoStorage(with: url)
     }
     
     // MARK: - Networking

@@ -28,6 +28,7 @@ class PhotoViewModel {
     var photoUrl: URL?
     
     private var dataService: DataService?
+    private var downloaderService: DownloaderService?
     
     // MARK: - Closures for callback, since we are not using the ViewModel to the View.
     var showAlertClosure: (() -> ())?
