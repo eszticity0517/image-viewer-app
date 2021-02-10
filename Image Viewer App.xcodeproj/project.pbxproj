@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D130C5725D3E7B900B7DBA2 /* DataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D130C5625D3E7B900B7DBA2 /* DataRequest.swift */; };
 		9D403D4225D2B598003659A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D403D4125D2B598003659A7 /* AppDelegate.swift */; };
 		9D403D4425D2B598003659A7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D403D4325D2B598003659A7 /* SceneDelegate.swift */; };
 		9D403D4625D2B598003659A7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D403D4525D2B598003659A7 /* ViewController.swift */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		13931CDB58DE6A9D19A37E83 /* Pods-Image Viewer App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Image Viewer App.debug.xcconfig"; path = "Target Support Files/Pods-Image Viewer App/Pods-Image Viewer App.debug.xcconfig"; sourceTree = "<group>"; };
 		74E7DE89F32CF0682AEE07CB /* Pods_Image_Viewer_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Image_Viewer_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D130C5625D3E7B900B7DBA2 /* DataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRequest.swift; sourceTree = "<group>"; };
 		9D403D3E25D2B598003659A7 /* Image Viewer App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Image Viewer App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D403D4125D2B598003659A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D403D4325D2B598003659A7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +59,22 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		9D130C5425D3E79400B7DBA2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9D130C5525D3E79C00B7DBA2 /* Alamofire */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9D130C5525D3E79C00B7DBA2 /* Alamofire */ = {
+			isa = PBXGroup;
+			children = (
+				9D130C5625D3E7B900B7DBA2 /* DataRequest.swift */,
+			);
+			path = Alamofire;
+			sourceTree = "<group>";
+		};
 		9D403D3525D2B597003659A7 = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +96,7 @@
 		9D403D4025D2B598003659A7 /* Image Viewer App */ = {
 			isa = PBXGroup;
 			children = (
+				9D130C5425D3E79400B7DBA2 /* Extensions */,
 				9D4B8F7425D3396D00D7A8AA /* ViewModel */,
 				9DB9E4B925D312D0009A8D8F /* View */,
 				9DB9E4B825D312BD009A8D8F /* Model */,
@@ -262,6 +281,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D130C5725D3E7B900B7DBA2 /* DataRequest.swift in Sources */,
 				9D403D4625D2B598003659A7 /* ViewController.swift in Sources */,
 				9D4B8F7625D3398000D7A8AA /* PhotoViewModel.swift in Sources */,
 				9D403D4225D2B598003659A7 /* AppDelegate.swift in Sources */,
