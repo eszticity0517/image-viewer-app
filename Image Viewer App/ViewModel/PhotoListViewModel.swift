@@ -36,7 +36,7 @@ class PhotoListViewModel {
     }
     
     // MARK: - Network call
-    func fetchPhoto(withId id: Int) {
+    func fetchAllPhotos() {
         self.dataService?.requestFetchAllPhotos(completion: { (photos, error) in
             if let error = error {
                 self.error = error

@@ -10,7 +10,8 @@ import UIKit
 // It's the view model that owns the model, and the view controller asks the view model for the data it needs to display.
 class ViewController: UIViewController {
     // MARK: - Injection
-      let viewModel = PhotoViewModel(dataService: DataService())
+    let photoViewModel = PhotoViewModel(dataService: DataService())
+    let photoListViewModel = PhotoListViewModel(dataService: DataService())
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,35 +21,53 @@ class ViewController: UIViewController {
     }
     
     // MARK: - Networking
-       private func attemptFetchPhoto(withId id: Int) {
-           viewModel.fetchPhoto(withId: id)
-           
-           viewModel.updateLoadingStatus = {
-               let _ = self.viewModel.isLoading ? self.activityIndicatorStart() : self.activityIndicatorStop()
-           }
-           
-           viewModel.showAlertClosure = {
-               if let error = self.viewModel.error {
-                   print(error.localizedDescription)
-               }
-           }
-           
-           viewModel.didFinishFetch = {
-               // TODO: fill the table with objects.
-           }
-       }
-       
-       // MARK: - UI Setup
-       private func activityIndicatorStart() {
-           // Code for show activity indicator view
-           // ...
-           print("start")
-       }
-       
-       private func activityIndicatorStop() {
-           // Code for stop activity indicator view
-           // ...
-           print("stop")
-       }
+    private func attemptFetchPhoto(withId id: Int) {
+        photoViewModel.fetchPhoto(withId: id)
+        
+        photoViewModel.updateLoadingStatus = {
+            let _ = self.photoViewModel.isLoading ? self.activityIndicatorStart() : self.activityIndicatorStop()
+        }
+        
+        photoViewModel.showAlertClosure = {
+            if let error = self.photoViewModel.error {
+                print(error.localizedDescription)
+            }
+        }
+        
+        photoViewModel.didFinishFetch = {
+            // TODO: fill the table with objects.
+        }
+    }
+    
+    private func attemptFetchAllPhotos() {
+        photoListViewModel.fetchAllPhotos()
+        
+        photoListViewModel.updateLoadingStatus = {
+            let _ = self.photoViewModel.isLoading ? self.activityIndicatorStart() : self.activityIndicatorStop()
+        }
+        
+        photoListViewModel.showAlertClosure = {
+            if let error = self.photoViewModel.error {
+                print(error.localizedDescription)
+            }
+        }
+        
+        photoListViewModel.didFinishFetch = {
+            // TODO: fill the table with objects.
+        }
+    }
+    
+    // MARK: - UI Setup
+    private func activityIndicatorStart() {
+        // Code for show activity indicator view
+        // ...
+        print("start")
+    }
+    
+    private func activityIndicatorStop() {
+        // Code for stop activity indicator view
+        // ...
+        print("stop")
+    }
 }
 
