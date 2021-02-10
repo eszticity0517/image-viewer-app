@@ -52,7 +52,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     @objc func buttonClicked(sender: AnyObject?) {
-        let url = (photoListViewModel.photos?[sender!.tag ?? 0].thumbnailURL)!
+        let url = (photoListViewModel.photos?[sender!.tag - 1].thumbnailURL)!
         downloaderService?.dowloadThumbnailIntoStorage(with: url)
     }
     
