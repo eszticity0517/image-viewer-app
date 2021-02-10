@@ -10,9 +10,9 @@ import Foundation
 class PhotoViewModel {
     
     // MARK: - Properties
-    private var photo: Photo? {
+    var imageData: Data? {
         didSet {
-            guard let p = photo else { return }
+            guard let p = imageData else { return }
             self.didFinishFetch?()
         }
     }
@@ -41,8 +41,8 @@ class PhotoViewModel {
     }
     
     // MARK: - Network call
-    func fetchPhoto(withId id: Int) {
-        self.dataService?.requestFetchPhoto(with: id, completion: { (photo, error) in
+    func downloadPhoto(withId url: String) {
+        self.dataService?.requestDownloadPhoto(imageURL: url, completion: { (imageData, error) in
             if let error = error {
                 self.error = error
                 self.isLoading = false
@@ -50,7 +50,7 @@ class PhotoViewModel {
             }
             self.error = nil
             self.isLoading = false
-            self.photo = photo
+            self.imageData = imageData
         })
     }
 }

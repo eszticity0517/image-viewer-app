@@ -12,8 +12,7 @@ import Alamofire
 // It's the view model that owns the model, and the view controller asks the view model for the data it needs to display.
 // We don´t need the UITableViewController inheritance, this extends from UIViewController already, but DataSource and ViewDelegate are needed.
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    // MARK: - Injection
-    let photoViewModel = PhotoViewModel(dataService: DataService())
+
     let photoListViewModel = PhotoListViewModel(dataService: DataService())
     
     // Not entirely sure where to put this, it is not related to the ViewModel nor the model actually ...
@@ -31,7 +30,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         photosTable.delegate = self
         photosTable.rowHeight = 60
         
-        attemptFetchPhoto(withId: 8)
         attemptFetchAllPhotos()
     }
     
@@ -57,24 +55,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         downloaderService?.dowloadThumbnailIntoStorage(with: url)
     }
     
-    // MARK: - Networking
-    private func attemptFetchPhoto(withId id: Int) {
-        photoViewModel.fetchPhoto(withId: id)
-        
-        photoViewModel.updateLoadingStatus = {
-            let _ = self.photoViewModel.isLoading ? self.activityIndicatorStart() : self.activityIndicatorStop()
-        }
-        
-        photoViewModel.showAlertClosure = {
-            if let error = self.photoViewModel.error {
-                print(error.localizedDescription)
-            }
-        }
-        
-        photoViewModel.didFinishFetch = {
-            self.photosTable.reloadData()
-        }
-    }
+ 
     
     private func attemptFetchAllPhotos() {
         photoListViewModel.fetchAllPhotos()
@@ -111,6 +92,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if let destination = segue.destination as? DetailsViewController {
             destination.photoID = (sender as! PhotoTableViewCell).tag
             destination.photoText = photoListViewModel.photos![(sender as! PhotoTableViewCell).tag].title!
+            destination.photoURL = photoListViewModel.photos![(sender as! PhotoTableViewCell).tag].url!
         }
     }
 }

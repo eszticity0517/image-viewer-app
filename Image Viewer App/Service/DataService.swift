@@ -32,8 +32,10 @@ struct DataService {
         }
     }
     
+    // MARK: - Download the photo and then return its data.
     func requestDownloadPhoto(imageURL: String, completion: @escaping (Data?, Error?) -> ()) {
         Alamofire.download(imageURL).responseData { response in
+            print(response)
             if let error = response.error {
                 completion(nil, error)
                 return
