@@ -33,15 +33,15 @@ struct DataService {
     }
     
     // MARK: - Download the photo and then return its data.
-    func requestDownloadPhoto(imageURL: String, completion: @escaping (Data?, Error?) -> ()) {
-        Alamofire.download(imageURL).responseData { response in
+    func requestDownloadPhoto(imageURL: String, completion: @escaping (UIImage?, Error?) -> ()) { 
+        Alamofire.request(imageURL).responseData { response in
             print(response)
             if let error = response.error {
                 completion(nil, error)
                 return
             }
             if let data = response.result.value {
-                completion(data, nil)
+                completion(UIImage(data: data), nil)
                 return
             }
         }

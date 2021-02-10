@@ -6,13 +6,14 @@
 //
 
 import Foundation
+import UIKit
 
 class PhotoViewModel {
     
     // MARK: - Properties
-    var imageData: Data? {
+    var image: UIImage? {
         didSet {
-            guard let p = imageData else { return }
+            guard let p = image else { return }
             self.didFinishFetch?()
         }
     }
@@ -42,7 +43,7 @@ class PhotoViewModel {
     
     // MARK: - Network call
     func downloadPhoto(withId url: String) {
-        self.dataService?.requestDownloadPhoto(imageURL: url, completion: { (imageData, error) in
+        self.dataService?.requestDownloadPhoto(imageURL: url, completion: { (image, error) in
             if let error = error {
                 self.error = error
                 self.isLoading = false
@@ -50,7 +51,7 @@ class PhotoViewModel {
             }
             self.error = nil
             self.isLoading = false
-            self.imageData = imageData
+            self.image = image
         })
     }
 }

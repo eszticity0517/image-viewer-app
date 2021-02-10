@@ -27,7 +27,7 @@ class DetailsViewController: UIViewController {
         
         photoTitle.text = photoText
         
-        // attemptDownloadPhoto(url: photoURL)
+        attemptDownloadPhoto(url: photoURL)
     }
     
     override func didReceiveMemoryWarning() {
@@ -49,8 +49,7 @@ class DetailsViewController: UIViewController {
         }
         
         photoViewModel.didFinishFetch = {
-            let yourImage: UIImage = UIImage(data: self.photoViewModel.imageData!)!
-            self.photoImage.image = yourImage
+            self.photoImage.image = self.photoViewModel.image
         }
     }
     
