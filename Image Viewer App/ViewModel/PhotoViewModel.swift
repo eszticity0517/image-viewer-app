@@ -12,12 +12,8 @@ class PhotoViewModel {
     
     // MARK: - Properties
     var image: PublishSubject<Data> = PublishSubject()
-    var error: Error? {
-        didSet { self.showAlertClosure?() }
-    }
-    var isLoading: Bool = false {
-        didSet { self.updateLoadingStatus?() }
-    }
+    var error: PublishSubject<Error?> = PublishSubject()
+    var isLoading: PublishSubject<Bool> = PublishSubject()
     
     private var dataService: DataService?
     private var downloaderService: DownloaderService?
@@ -36,12 +32,12 @@ class PhotoViewModel {
     func downloadPhoto(withId url: String) {
         self.dataService?.requestDownloadPhoto(imageURL: url, completion: { (image, error) in
             if let error = error {
-                self.error = error
-                self.isLoading = false
+                self.error.onNext(error)
+                self.isLoading.onNext(false)
                 return
             }
-            self.error = nil
-            self.isLoading = false
+            self.error.onNext(nil)
+            self.isLoading.onNext(false)
             self.image.onNext(image!)
         })
     }

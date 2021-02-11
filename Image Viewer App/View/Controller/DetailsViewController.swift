@@ -29,46 +29,15 @@ class DetailsViewController: UIViewController {
         photoTitle.text = photoText
         
         photoViewModel.image.observe(on: MainScheduler.instance).subscribe(onNext: { (image) in
+            print(image)
             self.photoImage.image = UIImage(data: image)
         })
         .disposed(by: disposeBag)
         
-        attemptDownloadPhoto(url: photoURL)
+        photoViewModel.downloadPhoto(withId: photoURL)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-    
-    // MARK: - Networking
-    private func attemptDownloadPhoto(url: String) {
-        photoViewModel.downloadPhoto(withId: url)
-        
-        photoViewModel.updateLoadingStatus = {
-            let _ = self.photoViewModel.isLoading ? self.activityIndicatorStart() : self.activityIndicatorStop()
-        }
-        
-        photoViewModel.showAlertClosure = {
-            if let error = self.photoViewModel.error {
-                print(error.localizedDescription)
-            }
-        }
-        
-        photoViewModel.didFinishFetch = {
-            //
-        }
-    }
-    
-    // MARK: - UI Setup
-    private func activityIndicatorStart() {
-        // Code for show activity indicator view
-        // ...
-        print("start")
-    }
-    
-    private func activityIndicatorStop() {
-        // Code for stop activity indicator view
-        // ...
-        print("stop")
     }
 }
