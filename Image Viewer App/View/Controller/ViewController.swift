@@ -28,9 +28,22 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         photosTable.delegate = self
         photosTable.rowHeight = 60
         
+        let spinner = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
+
+        spinner.startAnimating()
+        photosTable.backgroundView = spinner
+        
         photoListViewModel.photos.observe(on: MainScheduler.instance).subscribe(onNext: { (photos) in
             self.photoList = photos
             self.photosTable.reloadData()
+        })
+        .disposed(by: disposeBag)
+        
+        photoListViewModel.isLoading.observe(on: MainScheduler.instance).subscribe(onNext: { (isLoading) in
+            if(!isLoading)
+            {
+                self.photosTable.backgroundView = nil
+            }
         })
         .disposed(by: disposeBag)
         
