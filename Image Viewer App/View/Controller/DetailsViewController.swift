@@ -49,7 +49,7 @@ class DetailsViewController: UIViewController {
         }
         
         photoViewModel.didFinishFetch = {
-            self.photoImage.image = self.photoViewModel.image
+            self.photoImage.image = UIImage(data: self.photoViewModel.image!)
         }
     }
     

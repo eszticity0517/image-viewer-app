@@ -6,12 +6,11 @@
 //
 
 import Foundation
-import UIKit
 
 class PhotoViewModel {
     
     // MARK: - Properties
-    var image: UIImage? {
+    var image: Data? {
         didSet {
             guard let p = image else { return }
             self.didFinishFetch?()
