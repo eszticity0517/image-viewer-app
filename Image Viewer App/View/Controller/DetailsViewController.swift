@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
- 
+import RxSwift
 class DetailsViewController: UIViewController {
     
     // MARK: - Injection
@@ -21,11 +21,17 @@ class DetailsViewController: UIViewController {
     public var photoText: String = ""
     // Just in case ...
     public var photoURL: String = "https://via.placeholder.com/600/92c952"
+    public var disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         photoTitle.text = photoText
+        
+        photoViewModel.image.observe(on: MainScheduler.instance).subscribe(onNext: { (image) in
+            self.photoImage.image = UIImage(data: image)
+        })
+        .disposed(by: disposeBag)
         
         attemptDownloadPhoto(url: photoURL)
     }
@@ -49,7 +55,7 @@ class DetailsViewController: UIViewController {
         }
         
         photoViewModel.didFinishFetch = {
-            self.photoImage.image = UIImage(data: self.photoViewModel.image!)
+            //
         }
     }
     

@@ -6,16 +6,12 @@
 //
 
 import Foundation
+import RxSwift
 
 class PhotoViewModel {
     
     // MARK: - Properties
-    var image: Data? {
-        didSet {
-            guard let p = image else { return }
-            self.didFinishFetch?()
-        }
-    }
+    var image: PublishSubject<Data> = PublishSubject()
     var error: Error? {
         didSet { self.showAlertClosure?() }
     }
@@ -46,7 +42,7 @@ class PhotoViewModel {
             }
             self.error = nil
             self.isLoading = false
-            self.image = image
+            self.image.onNext(image!)
         })
     }
 }
