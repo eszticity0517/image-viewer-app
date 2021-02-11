@@ -24,10 +24,6 @@ class PhotoViewModel {
         didSet { self.updateLoadingStatus?() }
     }
     
-    var titleString: String?
-    var albumIdString: String?
-    var photoUrl: URL?
-    
     private var dataService: DataService?
     private var downloaderService: DownloaderService?
     
