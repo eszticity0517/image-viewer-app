@@ -20,7 +20,7 @@ struct DownloaderService {
     func dowloadThumbnailIntoStorage(with url: String) {
         let destination: DownloadRequest.DownloadFileDestination = { _, _ in
             var documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-            documentsURL.appendPathComponent("file.png")
+            documentsURL.appendPathComponent(UUID().uuidString + ".png")
             return (documentsURL, [.removePreviousFile])
         }
         

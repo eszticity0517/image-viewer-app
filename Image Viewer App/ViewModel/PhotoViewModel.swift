@@ -24,7 +24,7 @@ class PhotoViewModel {
     }
     
     // MARK: - Network call
-    func downloadPhoto(withId url: String) {
+    func downloadPhoto(withUrl url: String) {
         self.dataService?.requestDownloadPhoto(imageURL: url, completion: { (image, error) in
             if let error = error {
                 self.error.onNext(error)

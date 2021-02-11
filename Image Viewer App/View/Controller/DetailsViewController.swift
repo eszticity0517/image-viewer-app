@@ -34,7 +34,7 @@ class DetailsViewController: UIViewController {
         })
         .disposed(by: disposeBag)
         
-        photoViewModel.downloadPhoto(withId: photoURL)
+        photoViewModel.downloadPhoto(withUrl: photoURL)
     }
     
     override func didReceiveMemoryWarning() {

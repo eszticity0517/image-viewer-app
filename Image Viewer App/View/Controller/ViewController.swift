@@ -5,7 +5,6 @@
 //  Created by Eszter Szabó on 2021. 02. 09..
 //
 
-
 import UIKit
 import Alamofire
 import RxSwift
@@ -36,10 +35,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         .disposed(by: disposeBag)
         
         attemptFetchAllPhotos()
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Num: \(indexPath.row)")
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
