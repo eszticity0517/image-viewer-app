@@ -74,7 +74,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print((sender as! PhotoTableViewCell).tag)
         if let destination = segue.destination as? DetailsViewController {
             destination.photoID = (sender as! PhotoTableViewCell).tag
             destination.photoText = photoList[(sender as! PhotoTableViewCell).tag - 1].title!
