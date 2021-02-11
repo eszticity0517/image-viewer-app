@@ -34,9 +34,8 @@
                                                     </constraints>
                                                     <state key="normal" title="Download"/>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OhP-pU-qxX" userLabel="photoTitle">
-                                                    <rect key="frame" x="20" y="0.0" width="169" height="31"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OhP-pU-qxX" userLabel="photoTitle">
+                                                    <rect key="frame" x="20" y="0.0" width="285" height="30.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -44,6 +43,10 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="uWs-Ju-vcF" secondAttribute="bottom" id="Fy5-5d-wXm"/>
+                                                <constraint firstItem="OhP-pU-qxX" firstAttribute="top" secondItem="iIi-l1-wA9" secondAttribute="top" id="KAl-7q-ir1"/>
+                                                <constraint firstItem="uWs-Ju-vcF" firstAttribute="leading" secondItem="OhP-pU-qxX" secondAttribute="trailing" constant="20" id="ODi-2Y-Yys"/>
+                                                <constraint firstAttribute="bottom" secondItem="OhP-pU-qxX" secondAttribute="bottom" id="OMD-wd-bpr"/>
+                                                <constraint firstItem="OhP-pU-qxX" firstAttribute="leading" secondItem="iIi-l1-wA9" secondAttribute="leading" constant="20" id="d3a-oC-Nt2"/>
                                                 <constraint firstItem="uWs-Ju-vcF" firstAttribute="top" secondItem="iIi-l1-wA9" secondAttribute="top" id="rEL-L5-2zm"/>
                                                 <constraint firstAttribute="trailing" secondItem="uWs-Ju-vcF" secondAttribute="trailing" constant="20" id="yPo-gb-foa"/>
                                             </constraints>
