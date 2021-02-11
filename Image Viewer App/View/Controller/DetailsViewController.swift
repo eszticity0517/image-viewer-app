@@ -16,10 +16,11 @@ class DetailsViewController: UIViewController {
     @IBOutlet public weak var photoTitle: UILabel!
     @IBOutlet public weak var photoImage: UIImageView!
     
-    // These are coming from the previous ViewController.
+    // MARK: -These are coming from the previous ViewController.
     public var photoID: Int = 0
     public var photoText: String = ""
-    // Just in case ...
+    
+    // MARK: - Just in case, a pre-set value ...
     public var photoURL: String = "https://via.placeholder.com/600/92c952"
     public var disposeBag = DisposeBag()
     
@@ -29,7 +30,6 @@ class DetailsViewController: UIViewController {
         photoTitle.text = photoText
         
         photoViewModel.image.observe(on: MainScheduler.instance).subscribe(onNext: { (image) in
-            print(image)
             self.photoImage.image = UIImage(data: image)
         })
         .disposed(by: disposeBag)

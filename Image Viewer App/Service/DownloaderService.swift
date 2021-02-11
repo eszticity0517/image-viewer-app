@@ -10,7 +10,7 @@ import Alamofire
 
 typealias CompletionHandler = (_ success:Bool) -> Void
 
-// A separate service for non view-related downloading and file saving.
+// MARK: - A separate service for non view-related downloading and file saving.
 struct DownloaderService {
     // MARK: - Singleton instance.
     static let shared = DownloaderService()
@@ -23,7 +23,6 @@ struct DownloaderService {
             documentsURL.appendPathComponent("file.png")
             return (documentsURL, [.removePreviousFile])
         }
-        
         
         Alamofire.download(url, to: destination).responseData { response in
             if response.result.isSuccess, let imagePath = response.destinationURL?.path {

@@ -16,7 +16,6 @@ struct DataService {
     // MARK: - URL
     private var photoUrl = "https://jsonplaceholder.typicode.com/photos"
     
-    // TODO: add another function for every photo's fetching.
     // MARK: - Services
     func requestFetchPhoto(with id: Int, completion: @escaping (Photo?, Error?) -> ()) {
         let url = "\(photoUrl)/\(id)"

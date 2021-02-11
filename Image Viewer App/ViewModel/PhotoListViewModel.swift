@@ -6,29 +6,16 @@
 //
 
 import Foundation
+import RxSwift
 
 class PhotoListViewModel {
     
     // MARK: - Properties
-    var photos: Array<Photo>? {
-        didSet {
-            guard let p = photos else { return }
-            self.didFinishFetch?()
-        }
-    }
-    var error: Error? {
-        didSet { self.showAlertClosure?() }
-    }
-    var isLoading: Bool = false {
-        didSet { self.updateLoadingStatus?() }
-    }
+    var photos: PublishSubject<Array<Photo>> = PublishSubject()
+    var error: PublishSubject<Error?> = PublishSubject()
+    var isLoading: PublishSubject<Bool> = PublishSubject()
     
     private var dataService: DataService?
-    
-    // MARK: - Closures for callback, since we are not using the ViewModel to the View.
-    var showAlertClosure: (() -> ())?
-    var updateLoadingStatus: (() -> ())?
-    var didFinishFetch: (() -> ())?
     
     // MARK: - Constructor
     init(dataService: DataService) {
@@ -39,17 +26,13 @@ class PhotoListViewModel {
     func fetchAllPhotos() {
         self.dataService?.requestFetchAllPhotos(completion: { (photos, error) in
             if let error = error {
-                self.error = error
-                self.isLoading = false
+                self.error.onNext(error)
+                self.isLoading.onNext(false)
                 return
             }
-            self.error = nil
-            self.isLoading = false
-            self.photos = photos
+            self.error.onNext(nil)
+            self.isLoading.onNext(false)
+            self.photos.onNext(photos!)
         })
     }
-    
-    func numberOfRowsInSection() -> Int {
-         return photos?.count ?? 0
-     }
 }

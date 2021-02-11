@@ -8,16 +8,15 @@
 
 import UIKit
 import Alamofire
-// The view controller no longer owns the model.
-// It's the view model that owns the model, and the view controller asks the view model for the data it needs to display.
-// We don´t need the UITableViewController inheritance, this extends from UIViewController already, but DataSource and ViewDelegate are needed.
+import RxSwift
+
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     let photoListViewModel = PhotoListViewModel(dataService: DataService())
     
-    // Not entirely sure where to put this, it is not related to the ViewModel nor the model actually ...
-    // TODO: find out where to put DownloaderService instance.
     private var downloaderService: DownloaderService?
+    public var disposeBag = DisposeBag()
+    private var photoList: Array<Photo> = Array()
     
     @IBOutlet public weak var photosTable: UITableView!
     
@@ -30,6 +29,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         photosTable.delegate = self
         photosTable.rowHeight = 60
         
+        photoListViewModel.photos.observe(on: MainScheduler.instance).subscribe(onNext: { (photos) in
+            self.photoList = photos
+            self.photosTable.reloadData()
+        })
+        .disposed(by: disposeBag)
+        
         attemptFetchAllPhotos()
     }
     
@@ -38,11 +43,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return photoListViewModel.numberOfRowsInSection()
+        return photoList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let photo = photoListViewModel.photos![indexPath.row]
+        let photo = self.photoList[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath as IndexPath) as! PhotoTableViewCell
         cell.photoTitle!.text = photo.title
         cell.downloadButton!.tag = photo.id!
@@ -52,49 +57,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     @objc func buttonClicked(sender: AnyObject?) {
-        let url = (photoListViewModel.photos?[sender!.tag - 1].thumbnailURL)!
+        let url = (photoList[sender!.tag - 1].thumbnailURL)!
         downloaderService?.dowloadThumbnailIntoStorage(with: url)
     }
     
- 
-    
     private func attemptFetchAllPhotos() {
         photoListViewModel.fetchAllPhotos()
-        
-        photoListViewModel.updateLoadingStatus = {
-            let _ = self.photoListViewModel.isLoading ? self.activityIndicatorStart() : self.activityIndicatorStop()
-        }
-        
-        photoListViewModel.showAlertClosure = {
-            if let error = self.photoListViewModel.error {
-                print(error.localizedDescription)
-            }
-        }
-        
-        photoListViewModel.didFinishFetch = {
-            self.photosTable.reloadData()
-        }
-    }
-    
-    // MARK: - UI Setup
-    private func activityIndicatorStart() {
-        // Code for show activity indicator view
-        // ...
-        print("start")
-    }
-    
-    private func activityIndicatorStop() {
-        // Code for stop activity indicator view
-        // ...
-        print("stop")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print((sender as! PhotoTableViewCell).tag)
         if let destination = segue.destination as? DetailsViewController {
             destination.photoID = (sender as! PhotoTableViewCell).tag
-            destination.photoText = photoListViewModel.photos![(sender as! PhotoTableViewCell).tag - 1].title!
-            destination.photoURL = photoListViewModel.photos![(sender as! PhotoTableViewCell).tag - 1].url!
+            destination.photoText = photoList[(sender as! PhotoTableViewCell).tag - 1].title!
+            destination.photoURL = photoList[(sender as! PhotoTableViewCell).tag - 1].url!
         }
     }
 }

@@ -18,11 +18,6 @@ class PhotoViewModel {
     private var dataService: DataService?
     private var downloaderService: DownloaderService?
     
-    // MARK: - Closures for callback, since we are not using the ViewModel to the View.
-    var showAlertClosure: (() -> ())?
-    var updateLoadingStatus: (() -> ())?
-    var didFinishFetch: (() -> ())?
-    
     // MARK: - Constructor
     init(dataService: DataService) {
         self.dataService = dataService
